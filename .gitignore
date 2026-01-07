@@ -1,0 +1,13 @@
+# IDE / OS
+.vscode/
+.idea/
+*.iml
+*.log
+desktop.ini
+
+# Maven / Spring Boot
+target/
+*.class
+
+# Node / Angular (si tu as frontend)
+node_modules/
