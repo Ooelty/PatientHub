@@ -27,4 +27,8 @@ More features related to cardiovascular risk analysis and statistics will be add
 ```bash
 cd backend
 mvn spring-boot:run
+Front---
+cd frontend
+npm install
+ng serve
 
