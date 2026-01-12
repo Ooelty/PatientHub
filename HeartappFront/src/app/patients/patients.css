@@ -1,0 +1,126 @@
+/* Cartes section Patients */
+section .card {
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+section .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Animation fade-in sur l'apparition */
+section .card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+}
+
+/* Delay pour un effet en cascade sur les cartes */
+section .col-md-4:nth-child(1) .card {
+  animation-delay: 0.1s;
+}
+section .col-md-4:nth-child(2) .card {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Card body et boutons */
+section .card-body {
+  padding: 25px;
+  text-align: center;
+}
+
+section .card-title {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+section .card-text {
+  font-size: 1rem;
+  color: #555;
+}
+
+section .btn {
+  margin-top: 10px;
+  padding: 8px 20px;
+  font-weight: 500;
+}
+/* Responsive */
+@media (max-width: 768px) {
+    section .card {
+        margin-bottom: 20px;
+    }
+    }
+    /* Fond vert léger derrière la section */
+.action-container {
+  background-color: #f0fdf4;  /* vert pastel léger */
+  border-radius: 14px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(22, 163, 74, 0.1);
+}
+
+/* Cards */
+.action-section .card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 6px 18px rgba(22, 163, 74, 0.15);
+  border-left: 5px solid #22c55e;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.action-section .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(22, 163, 74, 0.25);
+}
+
+/* Animation fade-in */
+.action-section .card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+}
+
+.action-section .row .col-md-4:nth-child(1) .card { animation-delay: 0.1s; }
+.action-section .row .col-md-4:nth-child(2) .card { animation-delay: 0.3s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Card text */
+.action-section .card-title {
+  color: #15803d;
+  font-weight: 600;
+}
+.action-section .card-text {
+  color: #065f46;
+  font-size: 0.95rem;
+}
+
+/* Boutons */
+.action-section .btn-success {
+  border-radius: 6px;
+  font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.action-section .btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.2);
+}
+.hero-section {
+  background-color: #f0fdf4;  /* vert pastel léger */
+}

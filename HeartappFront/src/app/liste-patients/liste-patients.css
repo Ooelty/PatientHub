@@ -1,0 +1,201 @@
+/* Fond général de la page Patients */
+body {
+  background-color: #4db055; /* vert pastel très léger */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Conteneur principal */
+.container {
+  padding: 20px;
+}
+
+/* Carte principale de la liste des patients */
+.card {
+  background-color: #ffffff; /* garder le blanc pour les tables */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Table style */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  padding: 8px 12px;
+  text-align: center;
+}
+
+table th {
+  background-color: #339349; /* header vert */
+  color: white;
+}
+
+table tr:nth-child(even) {
+  background-color: #f1f8f2; /* vert très clair pour alternance des lignes */
+}
+/* Wrapper du formulaire */
+.search-form-wrapper {
+  background-color: #f1f8f2; /* vert très clair pour contraste avec le formulaire */
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* Input et group */
+.input-group .form-control {
+  border-radius: 8px 0 0 8px; /* arrondi gauche de l'input */
+}
+
+.input-group-text {
+  background-color: #28a746aa; /* vert pro */
+  color: white;
+  font-weight: 500;
+  border-radius: 8px 0 0 8px;
+}
+
+/* Boutons */
+.input-group .btn {
+  border-radius: 0 8px 8px 0;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+.input-group .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Responsive : full width sur mobile */
+@media (max-width: 768px) {
+  .search-form-wrapper .input-group {
+    flex-direction: column;
+  }
+
+  .input-group .form-control, .input-group .btn {
+    border-radius: 8px;
+    margin-top: 5px;
+    width: 100%;
+  }
+
+  .input-group .input-group-text {
+    border-radius: 8px;
+  }
+}
+/* Pagination simple, juste pour aligner et styliser boutons */
+.page-info {
+  font-weight: 500;
+  color: #333;
+  min-width: 80px;
+  text-align: center;
+}
+
+/* Boutons arrondis et hover léger */
+.btn-success.btn-sm {
+  border-radius: 6px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-success.btn-sm:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+/* Header de la table */
+.card-header.table-header {
+  background-color: #28a745; /* vert success Bootstrap */
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.2rem;
+  border-top-left-radius: 12px;   /* arrondi coins supérieurs */
+  border-top-right-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 15px 20px;
+}
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+
+  .card {
+    padding: 15px;
+  }
+}
+/* Fond vert léger derrière la card */
+.patients-card {
+  background-color: #f0fdf4; /* vert pastel clair */
+  border-left: 6px solid #22c55e;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(22, 163, 74, 0.1);
+  overflow: hidden;
+}
+
+/* Header du tableau */
+.table-header {
+  background-color: #16a34a; /* vert vif */
+  color: white;
+  font-weight: 600;
+}
+
+/* Table header vert clair */
+.table-success th {
+  background-color: #d1fae5; /* vert clair pour le header du tableau */
+  color: #065f46;
+}
+
+/* Cards et table hover */
+.patients-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(22, 163, 74, 0.25);
+  transition: all 0.3s ease;
+}
+
+/* Boutons search et reset */
+.search-form-wrapper .btn-success {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.search-form-wrapper .btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.2);
+}
+
+/* Input-group search */
+.search-form-wrapper .input-group-text {
+  font-weight: 500;
+}
+/* Wrapper de pagination */
+.pagination-wrapper {
+  margin-top: 10px;
+}
+
+/* Boutons de pagination */
+.pagination-btn {
+  border-radius: 6px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+}
+
+/* Info de page */
+.page-info {
+  font-weight: 500;
+  color: #065f46;
+  background-color: #f0fdf4; /* vert pastel léger */
+  border-radius: 6px;
+  padding: 4px 12px;
+  box-shadow: 0 2px 6px rgba(22, 163, 74, 0.1);
+}
+
+

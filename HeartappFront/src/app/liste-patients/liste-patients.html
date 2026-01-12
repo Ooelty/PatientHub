@@ -1,0 +1,138 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+  <div class="container-fluid">
+  <img src="heart.ico" alt="Heart" style="width:65px;" class="rounded-pill " id="Logo"> 
+    <a class="navbar-brand" routerLink="">SmartCardio</a>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+            data-bs-target="#navbarNav" aria-controls="navbarNav" 
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item mx-2">
+          <a class="nav-link " routerLink="">Home</a>
+        </li>
+        <li class="nav-item mx-2 ">
+          <a class="nav-link active" routerLink="/patients">Patients</a>
+        </li>
+        <li class="nav-item mx-2 ">
+          <a class="nav-link" routerLink="/heartreports">Reports</a>
+        </li>
+        <li class="nav-item mx-2 ">
+          <a class="nav-link " routerLink="/health">Health Plans</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+<div class="container">
+
+  <div class="card mt-5 shadow patients-card" *ngIf="Listedespatients && Listedespatients.length > 0">
+    
+    <!-- Header -->
+    <div class="card-header bg-success table-header text-white">
+      <h5 class="mb-0">Liste des Patients</h5>
+    </div>
+
+    <!-- Search Form -->
+    <div *ngIf="searchLabel" class="search-form-wrapper my-4">
+      <form [formGroup]="searchLabel" (ngSubmit)="handleSearchPatient()">
+        <div class="row justify-content-end g-2 align-items-center">
+          <div class="col-md-4 col-lg-5">
+            <div class="input-group">
+              <span class="input-group-text bg-success text-white" id="search-label">Search ID:</span>
+              <input type="number"
+                     class="form-control"
+                     formControlName="id"
+                     id="id"
+                     placeholder="Enter patient ID"
+                     aria-label="Patient ID"
+                     aria-describedby="search-label">
+              <button type="submit" class="btn btn-success">Search</button>
+              <button type="button"
+                      class="btn btn-success"
+                      (click)="resetSearch()"
+                      *ngIf="!searchLabel.get('id')?.value">
+                Reset
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Table -->
+    <div class="card-body p-0">
+      <table class="table table-bordered table-striped mb-0">
+        <thead class="table-success">
+          <tr>
+            <th>ID</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Height</th>
+            <th>Weight</th>
+            <th>ap_hi</th>
+            <th>ap_lo</th>
+            <th>Cholesterol</th>
+            <th>Gluc</th>
+            <th>Smoke</th>
+            <th>Alco</th>
+            <th>Active</th>
+            <th>Cardio</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let p of Listedespatients">
+            <td>{{ p.id }}</td>
+            <td>{{ p.age }}</td>
+            <td>{{ p.gender===1?'Female':'Male' }}</td>
+            <td>{{ p.height }}</td>
+            <td>{{ p.weight }}</td>
+            <td>{{ p.ap_hi }}</td>
+            <td>{{ p.ap_lo }}</td>
+            <td>{{ p.cholesterol===1?'Normal':p.cholesterol===2?'Above normal':p.cholesterol===3?'High':'Unknown' }}</td>
+            <td>{{ p.gluc===1?'Normal':p.gluc===2?'Above normal':p.gluc===3?'High':'Unknown' }}</td>
+            <td>{{ p.smoke===0?'No':'Yes' }}</td>
+            <td>{{ p.alco===0?'No':'Yes' }}</td>
+            <td>{{ p.active===0?'Not active':'Active' }}</td>
+            <td>{{ p.cardio===0?'No disease':'Has disease' }}</td>
+            <td><button class="btn btn-danger btn-sm" (click)="DeletePatient(p)">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- Pagination simple et cohérente -->
+<div class="pagination-wrapper d-flex justify-content-center align-items-center mt-2 gap-1">
+  <button (click)="goToPage(currentPage - 1)"
+          class="btn btn-success btn-sm pagination-btn"
+          [disabled]="currentPage === 0">
+    Précédent
+  </button>
+
+  <span class="page-info px-2 py-1 rounded bg-white shadow-sm">
+    Page {{ currentPage + 1 }} / {{ totalPages }}
+  </span>
+
+  <button (click)="goToPage(currentPage + 1)"
+          class="btn btn-success btn-sm pagination-btn"
+          [disabled]="currentPage === totalPages - 1">
+    Suivant
+  </button>
+</div>
+

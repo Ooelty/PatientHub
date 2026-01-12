@@ -1,0 +1,113 @@
+/* Fond général pour la page */
+body {
+  background-color: #e8f5e9; /* vert très clair pastel */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Conteneur principal */
+.container {
+  padding: 20px;
+}
+
+/* Carte principale */
+.card {
+  background-color: #ffffff; /* garder blanc pour contraste */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Animation fade-in */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation cascade pour cartes si besoin (ici juste 1 carte) */
+.card {
+  animation-delay: 0.1s;
+}
+
+/* Card header */
+.card-header {
+  background-color: #28a745; /* vert pro */
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+/* Form labels et inputs */
+.form-label {
+  font-weight: 500;
+  color: #333;
+}
+
+.form-control, select {
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+/* Boutons */
+.btn-success, .btn-primary {
+  border-radius: 8px;
+  padding: 8px 20px;
+  font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-success:hover, .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Radios inline spacing */
+input[type="radio"] {
+  margin-right: 5px;
+}
+/* Card principale */
+.form-card {
+  border-radius: 14px;
+  background-color: #f0fdf4; /* vert pastel léger derrière */
+  border-left: 6px solid #22c55e;
+  box-shadow: 0 10px 25px rgba(22, 163, 74, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(22, 163, 74, 0.25);
+}
+
+/* Inputs et selects */
+.form-control, .form-check-group input[type="radio"] {
+  border-radius: 6px;
+}
+
+/* Bouton Submit */
+.form-submit-btn {
+  border-radius: 6px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+}
+
+/* Radio groups espacement */
+.form-check-group {
+  margin-bottom: 15px;
+}
+

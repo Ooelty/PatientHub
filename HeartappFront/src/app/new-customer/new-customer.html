@@ -1,0 +1,138 @@
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <img src="heart.ico" alt="Heart" style="width:65px;" class="rounded-pill me-2">
+    <a class="navbar-brand" routerLink="/">SmartCardio</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item mx-2">
+          <a class="nav-link " routerLink="/">Home</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link active " routerLink="/patients">Patients</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link" routerLink="/heartreports">Reports</a>
+        </li><li class="nav-item mx-2 ">
+          <a class="nav-link " routerLink="/health">Health Plans</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= FORM ================= -->
+<div class="container my-5">
+  <div class="card col-md-8 offset-md-2 shadow form-card">
+    <div class="card-header bg-success text-white">
+      <h5 class="mb-0">Add New Patient</h5>
+    </div>
+
+    <div class="card-body">
+      <form [formGroup]="newpatientformgroup" (ngSubmit)="handleSavePatient()">
+
+        <!-- Age -->
+        <div class="mb-3">
+          <label class="form-label">Age</label>
+          <input type="number" class="form-control" formControlName="age">
+        </div>
+
+        <!-- Gender -->
+        <div class="mb-3">
+          <label class="form-label">Gender</label>
+          <select class="form-control" formControlName="sex">
+            <option value="">-- Select --</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+
+        <!-- Weight & Height -->
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Weight (kg)</label>
+            <input type="number" class="form-control" formControlName="weight">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Height (cm)</label>
+            <input type="number" class="form-control" formControlName="height">
+          </div>
+        </div>
+
+        <!-- Blood Pressure -->
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Systolic BP (ap_hi)</label>
+            <input type="number" class="form-control" formControlName="ap_hi">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Diastolic BP (ap_lo)</label>
+            <input type="number" class="form-control" formControlName="ap_lo">
+          </div>
+        </div>
+
+        <!-- Cholesterol & Glucose -->
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Cholesterol</label>
+            <select class="form-control" formControlName="cholesterol">
+              <option value="">-- Select --</option>
+              <option value="1">Normal</option>
+              <option value="2">Above Normal</option>
+              <option value="3">Well Above Normal</option>
+            </select>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Glucose</label>
+            <select class="form-control" formControlName="gluc">
+              <option value="">-- Select --</option>
+              <option value="1">Normal</option>
+              <option value="2">Above Normal</option>
+              <option value="3">Well Above Normal</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Radio Groups -->
+        <div class="mb-3 form-check-group">
+          <label>Smoking</label><br>
+          <input type="radio" value="1" formControlName="smoke"> Yes
+          <input type="radio" value="0" formControlName="smoke" class="ms-3"> No
+        </div>
+
+        <div class="mb-3 form-check-group">
+          <label>Alcohol Consumption</label><br>
+          <input type="radio" value="1" formControlName="alco"> Yes
+          <input type="radio" value="0" formControlName="alco" class="ms-3"> No
+        </div>
+
+        <div class="mb-3 form-check-group">
+          <label>Physically Active</label><br>
+          <input type="radio" value="1" formControlName="active"> Yes
+          <input type="radio" value="0" formControlName="active" class="ms-3"> No
+        </div>
+
+        <div class="mb-3 form-check-group">
+          <label>Cardiovascular Disease</label><br>
+          <input type="radio" value="1" formControlName="cardio"> Yes
+          <input type="radio" value="0" formControlName="cardio" class="ms-3"> No
+        </div>
+
+        <!-- Submit -->
+        <div class="text-end">
+          <button class="btn btn-success form-submit-btn" type="submit" [disabled]="newpatientformgroup.invalid">
+            Save Patient
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+

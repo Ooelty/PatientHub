@@ -1,0 +1,110 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+  <div class="container-fluid">
+  <img src="heart.ico" alt="Heart" style="width:65px;" class="rounded-pill " id="Logo"> 
+    <a class="navbar-brand" routerLink="">SmartCardio</a>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+            data-bs-target="#navbarNav" aria-controls="navbarNav" 
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item mx-2 ">
+          <a class="nav-link " routerLink="">Home</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link" routerLink="/patients">Patients</a>
+        </li>
+        <li class="nav-item mx-2 ">
+          <a class="nav-link active " routerLink="/heartreports">Reports</a>
+        </li>
+        <li class="nav-item mx-2 ">
+          <a class="nav-link " routerLink="/health">Health Plans</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- Hero Reports Section -->
+<section class="hero-section text-center py-5">
+  <div class="container">
+    <h1 class="fw-bold display-4 text-success">Heart Health Reports</h1>
+    <p class="lead text-dark">Statistiques et indicateurs cardiovasculaires</p>
+  </div>
+</section>
+
+
+<div class="reports-container">
+
+  
+
+  <!-- Total Patients -->
+  <div class="card total-card">
+    <h2>Total Patients</h2>
+    <span class="big-number">{{ totalPatients | number }}</span>
+  </div>
+
+  <!-- Stats Cards -->
+  <div class="stats-grid">
+
+    <div class="card">
+      <h3>Cardio Disease</h3>
+      <p>With disease: <strong>{{ stats.cardioPositive | number }}</strong></p>
+      <p>Without disease: <strong>{{ stats.cardioNegative | number }}</strong></p>
+    </div>
+
+    <div class="card">
+      <h3>Gender Distribution</h3>
+      <p>Male: <strong>{{ stats.male | number }}</strong></p>
+      <p>Female: <strong>{{ stats.female | number }}</strong></p>
+    </div>
+
+    <div class="card">
+      <h3>Smoking Habits</h3>
+      <p>Smokers: <strong>{{ stats.smokers | number }}</strong></p>
+      <p>Non-Smokers: <strong>{{ stats.nonSmokers | number }}</strong></p>
+    </div>
+
+    <div class="card">
+      <h3>Physical Activity</h3>
+      <p>Active: <strong>{{ stats.active | number }}</strong></p>
+      <p>Inactive: <strong>{{ stats.inactive | number }}</strong></p>
+    </div>
+
+  </div>
+ <div class="card mt-4 lifestyle-card">
+  <div class="card-body">
+    <h5 class="card-title text-success">Lifestyle</h5>
+
+   
+<div class="bar-container mt-4">
+  <div class="bar-wrapper">
+    <div class="bar active" [style.height.px]="(stats.active / totalPatients) * 150"></div>
+    <span class="bar-label">Active</span>
+    <span class="bar-value">{{ stats.active | number }}</span>
+  </div>
+  <div class="bar-wrapper">
+    <div class="bar inactive" [style.height.px]="(stats.inactive / totalPatients) * 150"></div>
+    <span class="bar-label">Inactive</span>
+    <span class="bar-value">{{ stats.inactive | number }}</span>
+  </div>
+  <div class="bar-wrapper">
+    <div class="bar smokers" [style.height.px]="(stats.smokers / totalPatients) * 150"></div>
+    <span class="bar-label">Smokers</span>
+    <span class="bar-value">{{ stats.smokers | number }}</span>
+  </div>
+  <div class="bar-wrapper">
+    <div class="bar nonSmokers" [style.height.px]="(stats.nonSmokers / totalPatients) * 150"></div>
+    <span class="bar-label">Non-Smokers</span>
+    <span class="bar-value">{{ stats.nonSmokers | number }}</span>
+  </div>
+</div>
+
+
+</div>
+
+
+

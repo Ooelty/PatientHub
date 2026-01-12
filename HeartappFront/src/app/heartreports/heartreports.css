@@ -1,0 +1,252 @@
+.reports-container {
+  padding: 40px;
+  min-height: 100vh;
+  background-color: #f0fdf4;
+  color: #064e3b;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header */
+.reports-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.reports-header h1 {
+  font-size: 2.4rem;
+  color: #16a34a;
+}
+
+.reports-header p {
+  color: #065f46;
+  opacity: 0.9;
+}
+
+/* Cards */
+.card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 10px 25px rgba(22, 163, 74, 0.15);
+  border-left: 6px solid #22c55e;
+}
+
+/* Total card */
+.total-card {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.big-number {
+  font-size: 3.8rem;
+  font-weight: bold;
+  color: #16a34a;
+}
+
+/* Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.card h3 {
+  margin-bottom: 15px;
+  color: #15803d;
+}
+
+.card p {
+  margin: 6px 0;
+  font-size: 0.95rem;
+}
+
+/* Hover effect */
+.card:hover {
+  transform: translateY(-4px);
+  transition: 0.3s ease;
+  box-shadow: 0 14px 30px rgba(22, 163, 74, 0.25);
+}
+/* Responsive */
+@media (max-width: 600px) {
+  .reports-container {
+    padding: 20px;
+  }
+
+  .big-number {
+    font-size: 2.8rem;
+  }
+}
+/* Animations */
+.stats-grid .card,
+.total-card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.reports-container {
+  padding: 40px;
+  min-height: 100vh;
+  background-color: #f0fdf4; /* vert très léger derrière toutes les cartes */
+  color: #064e3b;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Cards */
+.card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 10px 25px rgba(22, 163, 74, 0.15);
+  border-left: 6px solid #22c55e;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(22, 163, 74, 0.25);
+}
+
+/* Total card */
+.total-card {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.big-number {
+  font-size: 3.8rem;
+  font-weight: bold;
+  color: #16a34a;
+}
+
+/* Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+/* Text styles */
+.card h3 {
+  margin-bottom: 15px;
+  color: #15803d;
+}
+.card p {
+  margin: 6px 0;
+  font-size: 0.95rem;
+}
+
+/* Animations */
+.stats-grid .card,
+.total-card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Fond vert pastel léger pour la section Hero Reports */
+.hero-section {
+  background-color: #f0fdf4; /* vert très clair / pastel */
+  border-radius: 12px;
+  padding: 50px 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 6px 15px rgba(22, 163, 74, 0.1);
+}
+
+/* Titre et texte */
+.reports-hero-section h1 {
+  font-size: 2.4rem;
+  color: #16a34a; /* vert plus vif pour le titre */
+  margin-bottom: 10px;
+}
+
+.reports-hero-section p {
+  color: #065f46;
+  opacity: 0.9;
+  font-size: 1.1rem;
+}
+.lifestyle-card {
+  border-left: 6px solid #22c55e;
+  background: #f0fdf4;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(22, 163, 74, 0.15);
+}
+
+/* Container des barres */
+.bar-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 180px; /* hauteur fixe pour les barres */
+  gap: 15px;
+}
+
+/* Chaque wrapper de barre */
+.bar-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centre horizontalement */
+  width: 20%;
+}
+
+/* Barres */
+.bar {
+  width: 100%;
+  border-radius: 4px 4px 0 0;
+  transition: height 0.6s ease;
+}
+
+/* Couleurs spécifiques */
+.bar.active { background-color: #16a34a; }
+.bar.inactive { background-color: #4ade80; }
+.bar.smokers { background-color: #15803d; }
+.bar.nonSmokers { background-color: #22c55e; }
+
+.bar-value {
+  margin-top: 2px;
+  font-size: 0.85rem;
+  color: #065f46;
+  text-align: center;
+}
+
+/* Labels sous les barres */
+.bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #065f46;
+  margin-top: 10px;
+}
+
+/* Animation d’apparition */
+.bar {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+}
+
+.bar-wrapper:nth-child(1) .bar { animation-delay: 0.1s; }
+.bar-wrapper:nth-child(2) .bar { animation-delay: 0.2s; }
+.bar-wrapper:nth-child(3) .bar { animation-delay: 0.3s; }
+.bar-wrapper:nth-child(4) .bar { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,73 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+  <div class="container-fluid">
+  <img src="heart.ico" alt="Heart" style="width:65px;" class="rounded-pill " id="Logo"> 
+    <a class="navbar-brand" routerLink="">SmartCardio</a>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+            data-bs-target="#navbarNav" aria-controls="navbarNav" 
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item mx-2 ">
+          <a class="nav-link " routerLink="">Home</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link active" routerLink="/patients">Patients</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link" routerLink="/heartreports">Reports</a>
+        </li>
+        <li class="nav-item mx-2 ">
+          <a class="nav-link " routerLink="/health">Health Plans</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section  text-center py-5">
+  <div class="container">
+    <h1 class="display-4 fw-bold text-success">SmartCardio</h1>
+    <p class="lead text-dark">Manage patient data and monitor heart health easily.</p>
+  </div>
+</section>
+
+<!-- Action Cards Section -->
+<section class="action-section py-5">
+  <div class="container action-container p-4 rounded">
+    <div class="row g-4 justify-content-center">
+
+      <!-- View Patients -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm text-center">
+          <div class="card-body">
+            <h5 class="card-title">View Patients</h5>
+            <p class="card-text">See the complete list of all registered patients.</p>
+            <a routerLink="/liste-patients" class="btn btn-success">View Patients</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add Patient -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm text-center">
+          <div class="card-body">
+            <h5 class="card-title">Add Patient</h5>
+            <p class="card-text">Register a new patient quickly and easily.</p>
+            <a routerLink="/new-customer" class="btn btn-success">Add Patient</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+

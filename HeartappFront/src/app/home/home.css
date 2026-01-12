@@ -1,0 +1,105 @@
+/* Cartes de features */
+section .card {
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+
+section .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Animation fade-in sur l'apparition */
+section .card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+}
+
+/* Delay pour les cartes pour un effet en cascade */
+section .col-md-4:nth-child(1) .card {
+  animation-delay: 0.1s;
+}
+section .col-md-4:nth-child(2) .card {
+  animation-delay: 0.3s;
+}
+section .col-md-4:nth-child(3) .card {
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Optionnel : centrer le texte et harmoniser le padding */
+section .card-body {
+  padding: 25px;
+  text-align: center;
+}
+
+section .card-title {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+section .card-text {
+  font-size: 1rem;
+  color: #555;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  section .card {
+    margin-bottom: 20px;
+  }
+} 
+/* Fond vert clair pour la section Hero et Features */
+.hero-section {
+  background-color: #f0fdf4;  /* vert pastel léger */
+}
+
+.features-container {
+  background-color: #f0fdf4;  /* même vert léger que les reports */
+  border-radius: 14px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(22, 163, 74, 0.1);
+}
+
+/* Cards à l'intérieur */
+.features-section .card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 6px 18px rgba(22, 163, 74, 0.15);
+  border-left: 5px solid #22c55e;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.features-section .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(22, 163, 74, 0.25);
+}
+
+/* Animations en fade-in */
+.features-section .card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+}
+
+.features-section .row .col-md-4:nth-child(1) .card { animation-delay: 0.1s; }
+.features-section .row .col-md-4:nth-child(2) .card { animation-delay: 0.3s; }
+.features-section .row .col-md-4:nth-child(3) .card { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
