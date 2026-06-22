@@ -1,0 +1,62 @@
+services:
+  app:
+    build: .
+    ports:
+      - "9000:9000"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/smartcardio?createDatabaseIfNotExist=false&useSSL=false&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ""
+      KEYCLOAK_ISSUER_URI: http://keycloak:8080/realms/SecurityforSmartcardio
+      KEYCLOAK_JWK_URI: http://keycloak:8080/realms/SecurityforSmartcardio/protocol/openid-connect/certs
+    depends_on:
+      db:
+        condition: service_healthy
+      keycloak:
+        condition: service_healthy
+    restart: on-failure
+
+  front:
+    image: heartappfront:latest  # image du front isolee 
+    ports:
+      - "4200:80"
+    depends_on:
+      - app
+  db:
+    image: mysql:8.4.3
+    environment:
+      MYSQL_DATABASE: smartcardio
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_ROOT_PASSWORD: ""
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.5.5
+    command: start-dev --import-realm
+    ports:
+      - "8080:8080"
+      ##bootstrap cest juste un compte pour acceder a l'interface d'administration de keycloak  et admin cest dans mon local (quand je change le realm je trouvera les users dans mon local)
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: bootstrap
+      KC_BOOTSTRAP_ADMIN_PASSWORD: bootstrap
+      JAVA_OPTS_APPEND: "-Xms256m -Xmx512m" 
+      ## pour que keycloak puisse acceder a mon realm-export.json et l'importer dans keycloak
+    volumes:
+      - ./realm-export.json:/opt/keycloak/data/import/realm-export.json
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8080/realms/master || exit 1"]
+      interval: 20s
+      timeout: 15s
+      retries: 15
+      start_period: 120s
+
+volumes:
+  mysql_data:
+  

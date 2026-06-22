@@ -1,6 +1,5 @@
-package com.example.HeartdiseaseApp.enums;
+package com.example.heartdiseaseapp.enums;
 
 public enum Alcoholindicator {
     YES, NO
 }
-
